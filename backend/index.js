@@ -1,9 +1,10 @@
 // Packages
+const cors = require('cors');
 import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
-const cors = require('cors');
+
 
 // Files
 import connectDB from "./config/db.js";
