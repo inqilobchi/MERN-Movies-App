@@ -3,6 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
+const cors = require('cors');
 
 // Files
 import connectDB from "./config/db.js";
@@ -16,7 +17,11 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
